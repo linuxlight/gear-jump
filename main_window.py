@@ -1,5 +1,5 @@
-from PyQt6 import uic
-from PyQt6.QtWidgets import QMainWindow, QPushButton
+from PyQt5 import uic
+from PyQt5.QtWidgets import QMainWindow, QPushButton
 
 from app import MainApp
 from gear import Gear
