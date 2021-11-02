@@ -1,3 +1,6 @@
+import os
+import sys
+
 from PyQt5 import uic
 from PyQt5.QtWidgets import QMainWindow, QPushButton
 
@@ -9,13 +12,23 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super(MainWindow, self).__init__()
-        uic.loadUi("./etc/mainwindow.ui", self)
+        uic.loadUi(self.__resource_path("etc/mainwindow.ui"), self)
         self.show()
         self.input_num = None
         self.buttons = []
         self.app = MainApp(1, 5)
         self.refresh_buttons()
         self.set_gear_display(self.app.get_current_gear())
+
+    @staticmethod
+    def __resource_path(relative_path):
+        """ Get absolute path to resource, works for dev and for PyInstaller """
+        try:
+            # PyInstaller creates a temp folder and stores path in _MEIPASS
+            base_path = sys._MEIPASS
+        except Exception:
+            base_path = os.path.abspath(".")
+        return os.path.join(base_path, relative_path)
 
     def change_gear(self, target_stage: int):
         target_gear = self.app.select_gear(target_stage)

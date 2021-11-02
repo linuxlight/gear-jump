@@ -111,7 +111,7 @@ class MainApp:
             if back == target.back:
                 target_back_idx = i
                 break
-        # print(self.__current_gear.front_idx, self.__current_gear.back_idx, target_front_idx, target_back_idx)
+        print(self.__current_gear.front_idx, self.__current_gear.back_idx, target_front_idx, target_back_idx)
         diff_front = self.__current_gear.front_idx - target_front_idx
         diff_back = self.__current_gear.back_idx - target_back_idx
         print(f"[필요 변경횟수] 앞: {diff_front} 뒤: {diff_back}")
