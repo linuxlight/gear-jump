@@ -1,8 +1,13 @@
 import os
+import platform
 import sys
 
-from PyQt5 import uic
-from PyQt5.QtWidgets import QMainWindow, QPushButton
+if platform.system() == "Darwin":
+    from PyQt6 import uic
+    from PyQt6.QtWidgets import QMainWindow, QPushButton
+else:
+    from PyQt5 import uic
+    from PyQt5.QtWidgets import QMainWindow, QPushButton
 
 from app import MainApp
 from gear import Gear
