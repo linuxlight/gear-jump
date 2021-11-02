@@ -5,7 +5,7 @@
 import sys
 from PyQt5.QtWidgets import QApplication
 
-# front_list = [22, 30, 40]
+# front_list = []
 from main_window import MainWindow
 
 if __name__ == '__main__':
