@@ -60,7 +60,6 @@ class MainWindow(QMainWindow):
                 button.setPalette(pal)
             else:
                 button.setPalette(QPushButton().palette())
-            button.setAutoFillBackground(True)
             button.update()
 
     def set_gear_display(self, target_gear: Gear):
@@ -82,6 +81,7 @@ class MainWindow(QMainWindow):
         new_group.setText(str(stage))
         new_group.setMinimumSize(0, 100)
         new_group.setFont(QFont("Arial", 15))
+        new_group.setAutoFillBackground(True)
         new_group.clicked.connect(lambda: self.change_gear(stage))
         self.buttons.append(new_group)
         self.gearGridLayout.addWidget(new_group, row-1, col)
