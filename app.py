@@ -5,9 +5,9 @@ from gear import Gear, GearGroup
 
 class MainApp:
     def __init__(self, front: int, back: int):
-        self.front_list = [48, 36, 26]
-        self.back_list = [11, 12, 14, 16, 18, 22, 24, 28, 32, 36]
-        self.current_gear = Gear(front, back, self.front_list[front], self.back_list[back])
+        self.front_list = [26, 36, 48]
+        self.back_list = [36, 32, 28, 24, 22, 18, 16, 14, 12, 11]
+        self.__current_gear = Gear(front - 1, back - 1, self.front_list[front - 1], self.back_list[back - 1])
         self.groups = None  # GearGroup들의 리스트
         self.total_groups: int = 0
         self.build_groups()
@@ -47,6 +47,12 @@ class MainApp:
                 break
         return target_gear
 
+    def set_current_gear(self, gear: Gear):
+        self.__current_gear = gear
+
+    def get_current_gear(self):
+        return self.__current_gear
+
     def __build_gear_list(self):
         """ front_list와 back_list를 조합하여 Gear 객체 리스트를 생성 후 반환합니다. """
         gear_list = []
@@ -67,7 +73,7 @@ class MainApp:
     def __build_group_list(self, gear_list, torque_avg):
         """ gear_list의 Gear들의 토크값 차이로부터 단계별 그룹을 형성합니다.
 
-            이때 각 그룹별 최초 gear의 토크값은 전체 토크값 차이의 평균을 넘지 않습니다.
+            이때 각 그룹별 최초 gear의 토크값과 마지막 gear의 토크값의 차이는 전체 토크값 차이의 평균을 넘지 않습니다.
         """
         group_list = []
         group = None
@@ -78,8 +84,8 @@ class MainApp:
                 group = GearGroup()
                 current_first = gear.torque
             # 체인 각도 가장 큰 두 개만 제외
-            if not ((gear.front == self.front_list[0] and gear.back == self.back_list[0]) or
-                    (gear.front == self.front_list[-1] and gear.back == self.back_list[-1])):
+            if not ((gear.front == self.front_list[0] and gear.back == self.back_list[-1]) or
+                    (gear.front == self.front_list[-1] and gear.back == self.back_list[0])):
                 if gear.torque - current_first > torque_avg:
                     current_first = gear.torque
                     group.set_index(group_index)
@@ -105,8 +111,8 @@ class MainApp:
             if back == target.back:
                 target_back_idx = i
                 break
-        # print(current_front_idx, current_back_idx, target_front_idx, target_back_idx)
-        diff_front = self.current_gear.front_level - target_front_idx
-        diff_back = self.current_gear.back_level - target_back_idx
+        # print(self.__current_gear.front_idx, self.__current_gear.back_idx, target_front_idx, target_back_idx)
+        diff_front = self.__current_gear.front_idx - target_front_idx
+        diff_back = self.__current_gear.back_idx - target_back_idx
         print(f"[필요 변경횟수] 앞: {diff_front} 뒤: {diff_back}")
         return diff_front, diff_back

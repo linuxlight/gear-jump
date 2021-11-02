@@ -3,12 +3,12 @@ from typing import List, Optional
 
 class Gear:
 
-    def __init__(self, f_level, b_level, front, back):
+    def __init__(self, f_idx, b_idx, front, back):
         self.front = front
         self.back = back
-        self.front_level = f_level
-        self.back_level = b_level
-        self.torque = round(back / front, 3)
+        self.front_idx = f_idx
+        self.back_idx = b_idx
+        self.torque = round(front / back, 3)
 
     def __str__(self):
         return f"앞 드레일러:{self.front} 뒷 드레일러:{self.back} 기어비:{self.torque}"
