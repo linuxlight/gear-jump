@@ -28,8 +28,7 @@ class MainWindow(QMainWindow):
         self.buttons = []
         self.app = MainApp(1, 5)
         self.refresh_buttons()
-        print(self.app.current_stage)
-        self.set_color(self.app.current_stage)
+        self.set_color(self.app.get_current_stage())
         self.set_gear_display(self.app.get_current_gear())
 
     @staticmethod
@@ -54,7 +53,10 @@ class MainWindow(QMainWindow):
         for button in self.buttons:
             if button.objectName() == f"gearGroup_{selected}":
                 pal = button.palette()
-                pal.setColor(button.backgroundRole(), QColor(Qt.GlobalColor.blue))
+                if platform.system() == "Darwin":
+                    pal.setColor(button.backgroundRole(), QColor(Qt.GlobalColor.blue))
+                else:
+                    pal.setColor(button.backgroundRole(), QColor(Qt.blue))
                 button.setPalette(pal)
             else:
                 button.setPalette(QPushButton().palette())

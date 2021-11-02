@@ -10,7 +10,7 @@ class MainApp:
         self.back_list = [36, 32, 28, 24, 21, 18, 16, 14, 12, 11]
         # self.back_list = [28, 24, 21, 19, 17, 15, 14, 13, 12, 11]
         self.__current_gear = Gear(front - 1, back - 1, self.front_list[front - 1], self.back_list[back - 1])
-        self.current_stage = None
+        self.__current_stage = None
         self.groups = None  # GearGroup들의 리스트
         self.total_groups: int = 0
         self.build_groups()
@@ -64,8 +64,11 @@ class MainApp:
         for i, gear_group in enumerate(self.groups):
             for gear in gear_group.gear_list:
                 if self.__current_gear.front == gear.front and self.__current_gear.back == gear.back:
-                    self.current_stage = i + 1
+                    self.__current_stage = i + 1
                     break
+
+    def get_current_stage(self):
+        return self.__current_stage
 
     def __build_gear_list(self):
         """ front_list와 back_list를 조합하여 Gear 객체 리스트를 생성 후 반환합니다. """
