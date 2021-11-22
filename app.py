@@ -1,4 +1,5 @@
 import sys
+from enum import Enum
 
 from gear import Gear, GearGroup
 
@@ -11,6 +12,8 @@ class MainApp:
         # self.back_list = [28, 24, 21, 19, 17, 15, 14, 13, 12, 11]
         self.__current_gear = Gear(front - 1, back - 1, self.front_list[front - 1], self.back_list[back - 1])
         self.__current_stage = None
+        self.__current_front = front
+        self.__current_back = back
         self.groups = None  # GearGroup들의 리스트
         self.total_groups: int = 0
         self.build_groups()
@@ -46,7 +49,7 @@ class MainApp:
             if target_stage == gear_group.group_index:
                 for gear in gear_group.gear_list:
                     print(gear)
-                    front_diff, back_diff = self.__get_difference(gear)
+                    front_diff, back_diff = self.get_difference(gear)
                     need_diff = abs(front_diff) + abs(back_diff)
                     if min_diff > need_diff:
                         min_diff = need_diff
@@ -116,7 +119,7 @@ class MainApp:
         group_list.append(group)
         return group_list
 
-    def __get_difference(self, target: Gear):
+    def get_difference(self, target: Gear):
         """ current_gear와 target Gear의 각 front와 back의 차이 (필요 변경횟수)를 구합니다. """
         target_front_idx = None
         target_back_idx = None
@@ -133,3 +136,20 @@ class MainApp:
         diff_back = self.__current_gear.back_idx - target_back_idx
         print(f"[필요 변경횟수] 앞: {diff_front} 뒤: {diff_back}")
         return diff_front, diff_back
+
+    def get_front(self):
+        return self.__current_front
+
+    def set_front(self, front: int):
+        self.__current_front = front
+
+    def get_back(self):
+        return self.__current_back
+
+    def set_back(self, back: int):
+        self.__current_back = back
+
+    class Position(Enum):
+        FRONT = 1
+        BACK = 2
+

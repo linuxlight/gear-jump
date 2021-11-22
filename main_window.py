@@ -1,12 +1,12 @@
 import os
 import platform
 import sys
-
+import time
 
 if platform.system() == "Darwin":
-    from PyQt6 import uic
-    from PyQt6.QtCore import Qt
-    from PyQt6.QtWidgets import QMainWindow, QPushButton
+    from PyQt6 import uic, QtTest
+    from PyQt6.QtCore import Qt, QTimer, pyqtSlot
+    from PyQt6.QtWidgets import QMainWindow, QPushButton, QApplication
     from PyQt6.QtGui import QFont, QColor
 else:
     from PyQt5 import uic
@@ -42,12 +42,72 @@ class MainWindow(QMainWindow):
         return os.path.join(base_path, relative_path)
 
     def change_gear(self, target_stage: int):
-        target_gear = self.app.select_gear(target_stage)
+        target_gear: Gear = self.app.select_gear(target_stage)
+        front_diff, back_diff = self.app.get_difference(target_gear)
+        print(front_diff, back_diff)
+        if back_diff == 0:  # 뒷 드레일러 바꿀 필요 없으면
+            # 그냥 앞에만 순차적으로 변경
+            self.update_gear(front_diff, self.app.Position.FRONT)
+        else:               # 뒷 드레일러를 변경할 필요가 있는가?
+            if front_diff == 0:     # 앞드레일러를 변경할 필요가 없으면
+                # 그냥 뒤에만 순차적으로 변경
+                self.update_gear(back_diff, self.app.Position.BACK)
+            else:                   # 앞드레일러를 변경할 필요가 있다면
+                if self.app.get_current_gear().front_idx == 1:  # 지금 내 앞드레일러가 2단인가?
+                    # 그러면 뒤에꺼 싹다 바꾸고 -> 그 다음에 앞에꺼를 바꾸고
+                    self.update_gear(back_diff, self.app.Position.BACK)
+                    self.update_gear(front_diff, self.app.Position.FRONT)
+                else:
+                    # 아니면 일단 앞을 2로 변경 -> 그 담에 뒤에꺼 싹다 바꾸고 -> 그 담에 앞에 필요시 추가 변경
+                    if front_diff > 0:
+                        self.update_gear(1, self.app.Position.FRONT)
+                        self.update_gear(back_diff, self.app.Position.BACK)
+                        self.update_gear(front_diff-1, self.app.Position.FRONT)
+                    else:
+                        self.update_gear(-1, self.app.Position.FRONT)
+                        self.update_gear(back_diff, self.app.Position.BACK)
+                        self.update_gear(front_diff+1, self.app.Position.FRONT)
+
         self.app.set_current_gear(target_gear)
-        self.set_gear_display(target_gear)
+        # self.set_gear_display(target_gear)
         self.set_color(target_stage)
         print("[선택된 기어]", target_gear)
         print()
+
+    def update_gear(self, diff: int, position):
+        if position == self.app.Position.FRONT:
+            if diff > 0:
+                for i in range(diff):
+                    next_front = self.app.get_front() + 1
+                    QTimer.singleShot(500, lambda: self.__update_front(next_front))
+            elif diff < 0:
+                for i in range(abs(diff)):
+                    next_front = self.app.get_front() - 1
+                    print(next_front)
+                    QTimer.singleShot(500, lambda: self.__update_front(next_front))
+        elif position == self.app.Position.BACK:
+            if diff > 0:
+                for i in range(diff):
+                    next_rear = self.app.get_back() + 1
+                    QTimer.singleShot(500, lambda: self.__update_back(next_rear))
+            elif diff < 0:
+                for i in range(abs(diff)):
+                    next_rear = self.app.get_back() - 1
+                    QTimer.singleShot(500, lambda: self.__update_back(next_rear))
+
+    @pyqtSlot(int)
+    def __update_front(self, front):
+        self.frontGear.setText(str(front))
+        self.frontGear.repaint()
+        QApplication.processEvents()
+        self.app.set_front(front)
+
+    @pyqtSlot(int)
+    def __update_back(self, rear):
+        self.rearGear.setText(str(rear))
+        self.rearGear.repaint()
+        QApplication.processEvents()
+        self.app.set_back(rear)
 
     def set_color(self, selected):
         for button in self.buttons:
