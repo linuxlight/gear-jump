@@ -1,7 +1,10 @@
-import threading
 import time
+import platform
 
-from PyQt6.QtCore import pyqtSignal, QObject, QThread
+if platform.system() == "Darwin":
+    from PyQt6.QtCore import pyqtSignal, QThread
+else:
+    from PyQt5.QtCore import pyqtSignal, QThread
 
 from app import MainApp
 from gear import Gear

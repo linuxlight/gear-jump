@@ -1,20 +1,18 @@
 import os
 import platform
 import sys
-import threading
-import time
 
 from diff_calculator import GearDiffCalculator
 
 if platform.system() == "Darwin":
-    from PyQt6 import uic, QtTest
-    from PyQt6.QtCore import Qt, QTimer, pyqtSlot, pyqtSignal
+    from PyQt6 import uic
+    from PyQt6.QtCore import Qt, pyqtSlot
     from PyQt6.QtWidgets import QMainWindow, QPushButton, QApplication
     from PyQt6.QtGui import QFont, QColor
 else:
     from PyQt5 import uic
-    from PyQt5.QtCore import Qt
-    from PyQt5.QtWidgets import QMainWindow, QPushButton
+    from PyQt5.QtCore import Qt, pyqtSlot
+    from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication
     from PyQt5.QtGui import QFont, QColor
 
 from app import MainApp
@@ -30,7 +28,6 @@ class MainWindow(QMainWindow):
         self.input_num = None
         self.buttons = []
         self.app = MainApp(1, 5)
-        self.timer = QTimer()
         self.diff_cal = GearDiffCalculator(self.app)
         self.refresh_buttons()
         self.set_color(self.app.get_current_stage())
