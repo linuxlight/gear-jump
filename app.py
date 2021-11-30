@@ -1,19 +1,22 @@
 import sys
 
+from db_manager import DatabaseManager
 from gear import Gear, GearGroup
 
 
 class MainApp:
     def __init__(self, front_pos: int, back_pos: int):
-        self.front_list = [22, 30, 40]
         # self.front_list = [30, 40, 50]
-        self.back_list = [36, 32, 28, 24, 21, 18, 16, 14, 12, 11]
         # self.back_list = [28, 24, 21, 19, 17, 15, 14, 13, 12, 11]
+        self.db_mgr = DatabaseManager()
+        self.db_mgr.init_tables()
+        self.front_list = self.db_mgr.get_gears("front")
+        self.rear_list = self.db_mgr.get_gears("rear")
         self.__current_gear = Gear(
             front_pos - 1,
             back_pos - 1,
             self.front_list[front_pos - 1],
-            self.back_list[back_pos - 1]
+            self.rear_list[back_pos - 1]
         )
         self.__current_front_idx = self.__current_gear.front_idx
         self.__current_back_idx = self.__current_gear.back_idx
@@ -84,7 +87,7 @@ class MainApp:
         """ front_list와 back_list를 조합하여 Gear 객체 리스트를 생성 후 반환합니다. """
         gear_list = []
         for f, front in enumerate(self.front_list):
-            for b, back in enumerate(self.back_list):
+            for b, back in enumerate(self.rear_list):
                 gear_list.append(Gear(f, b, front, back))
         gear_list.sort(key=lambda x: x.torque)
         return gear_list
@@ -111,8 +114,8 @@ class MainApp:
                 group = GearGroup()
                 current_first = gear.torque
             # 체인 각도 가장 큰 두 개만 제외
-            if not ((gear.front == self.front_list[0] and gear.back == self.back_list[-1]) or
-                    (gear.front == self.front_list[-1] and gear.back == self.back_list[0])):
+            if not ((gear.front == self.front_list[0] and gear.back == self.rear_list[-1]) or
+                    (gear.front == self.front_list[-1] and gear.back == self.rear_list[0])):
                 if gear.torque - current_first > torque_avg:
                     current_first = gear.torque
                     group.set_index(group_index)
@@ -134,7 +137,7 @@ class MainApp:
             if front == target.front:
                 target_front_idx = i
                 break
-        for i, back in enumerate(self.back_list):
+        for i, back in enumerate(self.rear_list):
             if back == target.back:
                 target_back_idx = i
                 break

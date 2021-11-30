@@ -151,29 +151,53 @@
          <layout class="QGridLayout" name="gridLayout">
           <item row="2" column="3">
            <widget class="QLineEdit" name="rear_3">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>3단</string>
             </property>
            </widget>
           </item>
           <item row="2" column="7">
            <widget class="QLineEdit" name="rear_7">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>7단</string>
             </property>
            </widget>
           </item>
           <item row="2" column="6">
            <widget class="QLineEdit" name="rear_6">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>6단</string>
             </property>
            </widget>
           </item>
           <item row="0" column="2">
            <widget class="QLineEdit" name="front_2">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>2단</string>
             </property>
            </widget>
           </item>
@@ -199,92 +223,170 @@
           </item>
           <item row="2" column="5">
            <widget class="QLineEdit" name="rear_5">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>5단</string>
             </property>
            </widget>
           </item>
           <item row="2" column="2">
            <widget class="QLineEdit" name="rear_2">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>2단</string>
             </property>
            </widget>
           </item>
           <item row="0" column="3">
            <widget class="QLineEdit" name="front_3">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>3단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
            <widget class="QLineEdit" name="rear_8">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>8단</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
            <widget class="QLineEdit" name="rear_1">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>1단</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
            <widget class="QLineEdit" name="front_1">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>1단</string>
             </property>
            </widget>
           </item>
           <item row="2" column="4">
            <widget class="QLineEdit" name="rear_4">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>4단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="7">
            <widget class="QLineEdit" name="rear_14">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>14단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="3">
            <widget class="QLineEdit" name="rear_10">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>10단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="2">
            <widget class="QLineEdit" name="rear_9">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>9단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="5">
            <widget class="QLineEdit" name="rear_12">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>12단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="4">
            <widget class="QLineEdit" name="rear_11">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>11단</string>
             </property>
            </widget>
           </item>
           <item row="3" column="6">
            <widget class="QLineEdit" name="rear_13">
+            <property name="inputMask">
+             <string>00</string>
+            </property>
             <property name="alignment">
-             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
+            </property>
+            <property name="placeholderText">
+             <string>13단</string>
             </property>
            </widget>
           </item>

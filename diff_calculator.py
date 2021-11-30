@@ -28,11 +28,8 @@ class GearDiffCalculator(QThread):
         self.back_diff = back_diff
         self.target_gear = target_gear
         self.target_stage = target_stage
-        print("set_diff 성공")
 
     def __update_gear(self):
-        print("__update_gear 진입")
-
         print(f"\n\n지금 기어 상태:", self.app.get_front_idx(), self.app.get_back_idx())
         if self.back_diff == 0:  # 뒷 드레일러 바꿀 필요 없으면
             # 그냥 앞에만 순차적으로 변경

@@ -3,6 +3,7 @@ import platform
 import sys
 
 from diff_calculator import GearDiffCalculator
+from option import OptionManager
 
 if platform.system() == "Darwin":
     from PyQt6 import uic
@@ -29,6 +30,7 @@ class MainWindow(QMainWindow):
         self.buttons = []
         self.app = MainApp(1, 5)
         self.diff_cal = GearDiffCalculator(self.app)
+        self.opt_mgr = OptionManager(self.app, self)
         self.refresh_buttons()
         self.set_color(self.app.get_current_stage())
         self.set_gear_display(self.app.get_current_gear())
@@ -119,6 +121,7 @@ class MainWindow(QMainWindow):
     @pyqtSlot()
     def __save_option(self):
         self.stackedWidget.setCurrentIndex(0)
+        self.opt_mgr.save()
 
     @pyqtSlot()
     def __discard_option(self):
