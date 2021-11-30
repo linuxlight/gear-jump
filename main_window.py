@@ -91,7 +91,7 @@ class MainWindow(QMainWindow):
         new_group = QPushButton(self)
         new_group.setObjectName(f"gearGroup_{stage}")
         new_group.setText(str(stage))
-        new_group.setMinimumSize(0, 100)
+        new_group.setMinimumSize(0, 80)
         new_group.setFont(QFont("Arial", 15))
         new_group.setAutoFillBackground(True)
         new_group.clicked.connect(lambda: self.change_gear(stage))
