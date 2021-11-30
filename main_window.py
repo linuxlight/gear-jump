@@ -32,9 +32,17 @@ class MainWindow(QMainWindow):
         self.refresh_buttons()
         self.set_color(self.app.get_current_stage())
         self.set_gear_display(self.app.get_current_gear())
+        self.__connect_signals()
+
+    def __connect_signals(self):
         self.diff_cal.updateFront.connect(self.__print_front)
         self.diff_cal.updateRear.connect(self.__print_back)
         self.diff_cal.finished.connect(self.__confirm_gear)
+        self.optionSave.clicked.connect(self.__save_option)
+        self.optionCancel.clicked.connect(self.__discard_option)
+        self.action_Option.triggered.connect(self.__set_option)
+        self.action_Exit.triggered.connect(QApplication.quit)
+
 
     @staticmethod
     def __resource_path(relative_path):
@@ -107,3 +115,16 @@ class MainWindow(QMainWindow):
         self.app.set_current_gear(target_gear)
         self.set_color(target_stage)
         print()
+
+    @pyqtSlot()
+    def __save_option(self):
+        self.stackedWidget.setCurrentIndex(0)
+
+    @pyqtSlot()
+    def __discard_option(self):
+        self.stackedWidget.setCurrentIndex(0)
+
+    @pyqtSlot()
+    def __set_option(self):
+        self.stackedWidget.setCurrentIndex(1)
+        pass

@@ -14,107 +14,273 @@
    <string>Gear Jump</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,3">
+   <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0">
     <item>
-     <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,3,1">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <pointsize>25</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Front Gear</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLabel" name="rearGear">
-        <property name="font">
-         <font>
-          <pointsize>30</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>rear_value</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="frontGear">
-        <property name="font">
-         <font>
-          <pointsize>30</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>front_value</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <pointsize>25</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Rear Gear</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignBottom|Qt::AlignHCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="1">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QGridLayout" name="gearGridLayout"/>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout" stretch="0,3">
+        <item>
+         <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,3,1">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <pointsize>25</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Front Gear</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1">
+           <widget class="QLabel" name="rearGear">
+            <property name="font">
+             <font>
+              <pointsize>30</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>rear_value</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0">
+           <widget class="QLabel" name="frontGear">
+            <property name="font">
+             <font>
+              <pointsize>30</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>front_value</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QLabel" name="label_2">
+            <property name="font">
+             <font>
+              <pointsize>25</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Rear Gear</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignBottom|Qt::AlignHCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gearGridLayout"/>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2,8,0">
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="font">
+           <font>
+            <pointsize>35</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>설정</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>앞 드레일러</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QTextEdit" name="rear_2"/>
+          </item>
+          <item row="2" column="4">
+           <widget class="QTextEdit" name="rear_4"/>
+          </item>
+          <item row="2" column="7">
+           <widget class="QTextEdit" name="rear_7"/>
+          </item>
+          <item row="0" column="2">
+           <widget class="QTextEdit" name="front_2"/>
+          </item>
+          <item row="3" column="7">
+           <widget class="QTextEdit" name="rear_14"/>
+          </item>
+          <item row="3" column="5">
+           <widget class="QTextEdit" name="rear_12"/>
+          </item>
+          <item row="3" column="2">
+           <widget class="QTextEdit" name="rear_9"/>
+          </item>
+          <item row="2" column="3">
+           <widget class="QTextEdit" name="rear_3"/>
+          </item>
+          <item row="2" column="1">
+           <widget class="QTextEdit" name="rear_1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1">
+           <widget class="QTextEdit" name="front_1"/>
+          </item>
+          <item row="3" column="1">
+           <widget class="QTextEdit" name="rear_8"/>
+          </item>
+          <item row="3" column="3">
+           <widget class="QTextEdit" name="rear_10"/>
+          </item>
+          <item row="2" column="5">
+           <widget class="QTextEdit" name="rear_5"/>
+          </item>
+          <item row="0" column="3">
+           <widget class="QTextEdit" name="front_3"/>
+          </item>
+          <item row="2" column="0" rowspan="2">
+           <widget class="QLabel" name="label_4">
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>뒷 드레일러</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="4">
+           <widget class="QTextEdit" name="rear_11"/>
+          </item>
+          <item row="2" column="6">
+           <widget class="QTextEdit" name="rear_6"/>
+          </item>
+          <item row="3" column="6">
+           <widget class="QTextEdit" name="rear_13"/>
+          </item>
+          <item row="1" column="0" colspan="8">
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout" stretch="6,2,2">
+          <property name="spacing">
+           <number>-1</number>
+          </property>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="optionSave">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>확인</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="optionCancel">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text">
+             <string>취소</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
     </item>
    </layout>
   </widget>
