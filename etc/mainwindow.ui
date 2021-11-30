@@ -21,7 +21,7 @@
        <number>0</number>
       </property>
       <widget class="QWidget" name="page">
-       <layout class="QVBoxLayout" name="verticalLayout" stretch="0,3">
+       <layout class="QVBoxLayout" name="verticalLayout" stretch="2,8">
         <item>
          <layout class="QGridLayout" name="gridLayout_2" rowstretch="2,3,1">
           <item row="0" column="0">
@@ -126,7 +126,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
-       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="2,8,0">
+       <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,8,1">
         <item>
          <widget class="QLabel" name="label_5">
           <property name="font">
