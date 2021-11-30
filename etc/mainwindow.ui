@@ -18,7 +18,7 @@
     <item>
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QVBoxLayout" name="verticalLayout" stretch="2,8">
@@ -132,6 +132,8 @@
           <property name="font">
            <font>
             <pointsize>35</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
            </font>
           </property>
           <property name="text">
@@ -143,9 +145,17 @@
          <layout class="QGridLayout" name="gridLayout_3">
           <item row="0" column="0">
            <widget class="QLabel" name="label_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="font">
              <font>
               <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -154,28 +164,90 @@
            </widget>
           </item>
           <item row="2" column="2">
-           <widget class="QTextEdit" name="rear_2"/>
+           <widget class="QTextEdit" name="rear_2">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="4">
-           <widget class="QTextEdit" name="rear_4"/>
+           <widget class="QTextEdit" name="rear_4">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="7">
-           <widget class="QTextEdit" name="rear_7"/>
+           <widget class="QTextEdit" name="rear_7">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="0" column="2">
-           <widget class="QTextEdit" name="front_2"/>
+           <widget class="QTextEdit" name="front_2">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="3" column="7">
-           <widget class="QTextEdit" name="rear_14"/>
+           <widget class="QTextEdit" name="rear_14">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="3" column="5">
-           <widget class="QTextEdit" name="rear_12"/>
+           <widget class="QTextEdit" name="rear_12">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="3" column="2">
-           <widget class="QTextEdit" name="rear_9"/>
+           <widget class="QTextEdit" name="rear_9">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="3">
-           <widget class="QTextEdit" name="rear_3"/>
+           <widget class="QTextEdit" name="rear_3">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="1">
            <widget class="QTextEdit" name="rear_1">
@@ -185,28 +257,83 @@
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QTextEdit" name="front_1"/>
+           <widget class="QTextEdit" name="front_1">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QTextEdit" name="rear_8"/>
+           <widget class="QTextEdit" name="rear_8">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="3" column="3">
-           <widget class="QTextEdit" name="rear_10"/>
+           <widget class="QTextEdit" name="rear_10">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="5">
-           <widget class="QTextEdit" name="rear_5"/>
+           <widget class="QTextEdit" name="rear_5">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="0" column="3">
-           <widget class="QTextEdit" name="front_3"/>
+           <widget class="QTextEdit" name="front_3">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="0" rowspan="2">
            <widget class="QLabel" name="label_4">
             <property name="font">
              <font>
               <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
              </font>
             </property>
             <property name="text">
@@ -215,13 +342,34 @@
            </widget>
           </item>
           <item row="3" column="4">
-           <widget class="QTextEdit" name="rear_11"/>
+           <widget class="QTextEdit" name="rear_11">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="2" column="6">
-           <widget class="QTextEdit" name="rear_6"/>
+           <widget class="QTextEdit" name="rear_6">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="3" column="6">
-           <widget class="QTextEdit" name="rear_13"/>
+           <widget class="QTextEdit" name="rear_13">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>20</height>
+             </size>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0" colspan="8">
            <widget class="Line" name="line">
