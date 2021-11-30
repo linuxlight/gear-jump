@@ -1,19 +1,23 @@
 import sys
-from enum import Enum
 
 from gear import Gear, GearGroup
 
 
 class MainApp:
-    def __init__(self, front: int, back: int):
+    def __init__(self, front_pos: int, back_pos: int):
         self.front_list = [22, 30, 40]
         # self.front_list = [30, 40, 50]
         self.back_list = [36, 32, 28, 24, 21, 18, 16, 14, 12, 11]
         # self.back_list = [28, 24, 21, 19, 17, 15, 14, 13, 12, 11]
-        self.__current_gear = Gear(front - 1, back - 1, self.front_list[front - 1], self.back_list[back - 1])
+        self.__current_gear = Gear(
+            front_pos - 1,
+            back_pos - 1,
+            self.front_list[front_pos - 1],
+            self.back_list[back_pos - 1]
+        )
+        self.__current_front_idx = self.__current_gear.front_idx
+        self.__current_back_idx = self.__current_gear.back_idx
         self.__current_stage = None
-        self.__current_front = front
-        self.__current_back = back
         self.groups = None  # GearGroup들의 리스트
         self.total_groups: int = 0
         self.build_groups()
@@ -59,6 +63,9 @@ class MainApp:
 
     def set_current_gear(self, gear: Gear):
         self.__current_gear = gear
+        self.set_front_idx(gear.front_idx)
+        self.set_back_idx(gear.back_idx)
+        print("[변경된 기어]", self.__current_gear)
 
     def get_current_gear(self):
         return self.__current_gear
@@ -132,24 +139,19 @@ class MainApp:
                 target_back_idx = i
                 break
         print(self.__current_gear.front_idx, self.__current_gear.back_idx, target_front_idx, target_back_idx)
-        diff_front = self.__current_gear.front_idx - target_front_idx
-        diff_back = self.__current_gear.back_idx - target_back_idx
+        diff_front = target_front_idx - self.__current_gear.front_idx
+        diff_back = target_back_idx - self.__current_gear.back_idx
         print(f"[필요 변경횟수] 앞: {diff_front} 뒤: {diff_back}")
         return diff_front, diff_back
 
-    def get_front(self):
-        return self.__current_front
+    def get_front_idx(self):
+        return self.__current_front_idx
 
-    def set_front(self, front: int):
-        self.__current_front = front
+    def set_front_idx(self, front_idx: int):
+        self.__current_front_idx = front_idx
 
-    def get_back(self):
-        return self.__current_back
+    def get_back_idx(self):
+        return self.__current_back_idx
 
-    def set_back(self, back: int):
-        self.__current_back = back
-
-    class Position(Enum):
-        FRONT = 1
-        BACK = 2
-
+    def set_back_idx(self, back: int):
+        self.__current_back_idx = back
