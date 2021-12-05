@@ -11,10 +11,10 @@ if platform.system() == "Darwin":
     from PyQt6.QtWidgets import QMainWindow, QPushButton, QApplication
     from PyQt6.QtGui import QFont, QColor, QCursor
 else:
-    from PyQt5 import uic
+    from PyQt5 import uic, QtCore
     from PyQt5.QtCore import Qt, pyqtSlot
     from PyQt5.QtWidgets import QMainWindow, QPushButton, QApplication
-    from PyQt5.QtGui import QFont, QColor
+    from PyQt5.QtGui import QFont, QColor, QCursor
 
 from app import MainApp
 from gear import Gear
