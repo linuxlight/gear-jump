@@ -6,10 +6,10 @@ from diff_calculator import GearDiffCalculator
 from option import OptionManager
 
 if platform.system() == "Darwin":
-    from PyQt6 import uic
+    from PyQt6 import uic, QtCore
     from PyQt6.QtCore import Qt, pyqtSlot
     from PyQt6.QtWidgets import QMainWindow, QPushButton, QApplication
-    from PyQt6.QtGui import QFont, QColor
+    from PyQt6.QtGui import QFont, QColor, QCursor
 else:
     from PyQt5 import uic
     from PyQt5.QtCore import Qt, pyqtSlot
@@ -96,6 +96,10 @@ class MainWindow(QMainWindow):
         new_group.setMinimumSize(0, 80)
         new_group.setFont(QFont("Arial", 15))
         new_group.setAutoFillBackground(True)
+        if platform.system() == "Darwin":
+            new_group.setCursor(QCursor(Qt.CursorShape.BlankCursor))
+        else:
+            new_group.setCursor(QCursor(QtCore.Qt.BlankCursor))
         new_group.clicked.connect(lambda: self.change_gear(stage))
         self.buttons.append(new_group)
         self.gearGridLayout.addWidget(new_group, row-1, col)
